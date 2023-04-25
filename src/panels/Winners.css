@@ -1,0 +1,13 @@
+#winners{
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+#winners > li{
+    display: flex;
+    background-color: rgb(72, 114, 192);
+    border-radius: 20px;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 5px 0;
+}
