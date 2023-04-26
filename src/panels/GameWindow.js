@@ -4,6 +4,7 @@ import { getUser, postRoll, getJackpot } from '../Api';
 import Winners from './Winners';
 
 let SPINNING = false
+let FIRST_OPEN = true
 const WHEEL_SECKTORS = [0, 10, 50, 100, 200, 500, 750, 'jackpot']
 const UPDATE_TIME = 500;
 let win_section = 0;
@@ -21,7 +22,7 @@ const GameWindow = (props) => {
     const [alertShowed, setAlertShowed] = useState(false);
 
     const calculateWheel = (winSection) =>{
-        var spinCount = Math.floor(Math.random() * 4)+6;
+        var spinCount = Math.floor(Math.random() * 4)+5;
         var spinCountAsAng = spinCount*(2*Math.PI);
         var winAng = winSection*(2*Math.PI/count)
         setNeedAngle(spinCountAsAng-((2*Math.PI/count)*2)-winAng)

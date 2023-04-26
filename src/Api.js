@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL = "http://83.220.172.71:3000/api/"
+const URL = "https://slaaaadd.fvds.ru:3000/api/"
 
 export async function getUser(vk_id){
     try{
@@ -8,7 +8,7 @@ export async function getUser(vk_id){
         return response.data
     }
     catch(err){
-        console.error("Request get user error", err);
+        // console.error("Request get user error", err);
     }
     return null;
 }
@@ -19,7 +19,7 @@ export async function getJackpot(){
         return response.data
     }
     catch(err){
-        console.error("Request get jackpot error", err);
+        // console.error("Request get jackpot error", err);
     }
     return null;
 }
@@ -30,7 +30,7 @@ export async function getRolls(){
         return response.data
     }
     catch(err){
-        console.error("Request get last rolls", err);
+        // console.error("Request get last rolls", err);
     }
     return null;
 }
@@ -41,7 +41,7 @@ export async function postRoll(vk_id){
         return response.data
     }
     catch(err){
-        console.error("Request get user error", err);
+        // console.error("Request get user error", err);
     }
     return null;
 }

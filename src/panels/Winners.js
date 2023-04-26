@@ -6,7 +6,7 @@ const UPDATE_TIME = 5000;
 let prevMap = null
 const Winners = () =>{
 
-    const[winners, setWinners] = useState([null,null,null,null,null])
+    const[winners, setWinners] = useState([])
 
     const mapWinners = () =>{
         if(winners===null || winners === undefined){
