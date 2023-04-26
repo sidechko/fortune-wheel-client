@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL = "http://localhost:3000/api/"
+const URL = "http://83.220.172.71:3000/api/"
 
 export async function getUser(vk_id){
     try{
