@@ -1,44 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import './Winners.css'
-import { getRolls } from '../Api';
+import { getFetchedRolls } from '../Api';
 
 const UPDATE_TIME = 5000;
-let prevMap = null
+let WINNERS_FETCHINF = false;
+
+const Winner = (props) =>{
+    const[rollInfo, setRollInfo] = useState(null)
+
+    useEffect(()=>{
+        if(props === null)
+            return
+        setRollInfo(props.roll)
+    },[])
+
+    return <div className="winner">
+        <h3>{rollInfo === null ? "???" : rollInfo.user.first_name+" "+rollInfo.user.last_name}</h3>
+        <h3>{rollInfo === null ? "???" : rollInfo.win_value} scores</h3>
+    </div>
+}
+
 const Winners = () =>{
 
     const[winners, setWinners] = useState([])
+    const[childs, setChilds] = useState([])
 
-    const mapWinners = () =>{
-        if(winners===null || winners === undefined){
-            if(prevMap != null)
-                return prevMap
-            else return
-        }
-        prevMap = winners.map((user, i)=>{
-            return <li>
-                <h3>Player number: {user === null || user === undefined ? "???" : user.vk_id}</h3>
-                <h3>{user === null || user === undefined ? "???" : user.win_value} scores</h3>
-            </li>
+    const getChilds = () => {
+        return childs
+    }
+
+    const fetchLastRols = ()=>{
+        getFetchedRolls().then((v)=>{
+            setWinners(v)
+            WINNERS_FETCHINF = false
         })
-        return prevMap
     }
 
     useEffect(()=>{
         var timer
         const interval = () =>{
-            getRolls().then((rolls)=>{
-                setWinners(rolls)
-            })
+            if(WINNERS_FETCHINF == false){
+                WINNERS_FETCHINF = true
+                fetchLastRols()
+            }
             timer = setInterval(interval, UPDATE_TIME);
-
         }
         timer = setInterval(interval, UPDATE_TIME);
-
         return () => clearInterval(timer);
-    })
+    },[])
 
-    return <ul id="winners">{mapWinners()} 
-    </ul>
+    useEffect(()=>{
+        setChilds(winners.filter(w => w !== null).map(winner => {return <Winner key={winner.timestamp} roll={winner}/>}))
+    },[winners])
+
+    return <div id="winners">{getChilds()} 
+    </div>
 }
 
 export default Winners

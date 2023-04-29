@@ -1,10 +1,9 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import "./GameWindow.css"
-import { getUser, postRoll, getJackpot } from '../Api';
+import {postRoll, getJackpot } from '../Api';
 import Winners from './Winners';
 
 let SPINNING = false
-let FIRST_OPEN = true
 const WHEEL_SECKTORS = [0, 10, 50, 100, 200, 500, 750, 'jackpot']
 const UPDATE_TIME = 500;
 let win_section = 0;

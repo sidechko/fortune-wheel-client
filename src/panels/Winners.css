@@ -3,7 +3,7 @@
     padding-left: 0;
     margin-left: 0;
 }
-#winners > li{
+.winner{
     display: flex;
     background-color: rgb(72, 114, 192);
     border-radius: 20px;
