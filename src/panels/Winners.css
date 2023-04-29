@@ -7,7 +7,24 @@
     display: flex;
     background-color: rgb(72, 114, 192);
     border-radius: 20px;
-    justify-content: space-between;
+    justify-content: left;
     padding: 0 20px;
     margin: 5px 0;
+}
+
+.winner>img{
+    margin-block: auto;
+    flex-basis: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    object-position: 0% 50%;
+}
+
+.name{
+    margin-inline: 20px 20px;
+}
+
+.score{
+    text-align: right;
+    flex-grow: 10;
 }

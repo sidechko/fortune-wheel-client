@@ -15,8 +15,9 @@ const Winner = (props) =>{
     },[])
 
     return <div className="winner">
-        <h3>{rollInfo === null ? "???" : rollInfo.user.first_name+" "+rollInfo.user.last_name}</h3>
-        <h3>{rollInfo === null ? "???" : rollInfo.win_value} scores</h3>
+        <img src={rollInfo===null? null: rollInfo.user.photo_100}/>
+        <h3 className='name'>{rollInfo === null ? "???" : rollInfo.user.first_name+" "+rollInfo.user.last_name}</h3>
+        <h3 className='score'>{rollInfo === null ? "???" : rollInfo.win_value} scores</h3>
     </div>
 }
 
